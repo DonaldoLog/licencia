@@ -11,10 +11,30 @@
 |
 */
 
+Route::resource('licencia', 'NuevaLicenciaController');
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/nueva-licencia', 'NuevaLicenciaController@nuevaLicencia')->name('nueva.licencia');
+
+Route::get('/homex', 'NuevaLicenciaController@homex')->name('casa');
+
+Route::get('/documentos', 'NuevaLicenciaController@documento')->name('documentos');
+
+Route::get('/continuar-registro', 'NuevaLicenciaController@continuarregistro')->name('contregistro');
+
+Route::get('/renovacion', 'NuevaLicenciaController@renovacion')->name('renovacion');
+
+Route::get('/referencia-de-pago', 'NuevaLicenciaController@referencia')->name('referencia');
+
+Route::get('/nueva-licencia-paso-2', 'NuevaLicenciaController@nuevalicenciaP2')->name('nuevalicenciaP2');
+
+Route::get('/licencia', 'NuevaLicenciaController@generalicencia')->name('generalicencia');
+
+
+
