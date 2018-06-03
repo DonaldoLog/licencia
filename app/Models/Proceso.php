@@ -12,6 +12,7 @@ class Proceso extends Model
         'idUsuario',
         'tipoProceso',
         'referencia',
-        'costo'
+        'costo',
+        'estado'
     ];
 }

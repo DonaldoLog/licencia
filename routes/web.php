@@ -36,5 +36,6 @@ Route::get('/nueva-licencia-paso-2', 'NuevaLicenciaController@nuevalicenciaP2')-
 
 Route::get('/licencia', 'NuevaLicenciaController@generalicencia')->name('generalicencia');
 
+/*------------------------ RUTAS PARA INICAR LICENCIA---------------------------------*/
 
-
+    Route::post('licencia-store', 'LicenciaController@store')->name('store.usuario');

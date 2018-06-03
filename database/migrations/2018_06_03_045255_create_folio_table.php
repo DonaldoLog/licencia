@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProcesoTable extends Migration
+class CreateFolioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateProcesoTable extends Migration
      */
     public function up()
     {
-        Schema::create('proceso', function (Blueprint $table) {
+        Schema::create('folio', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idUsuario')->unsigned();
-            $table->string('tipoProceso');
-            $table->string('referencia');
-            $table->decimal('costo',8,2);
-            $table->boolean('estado');
+            $table->integer('folio')->unique();
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateProcesoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proceso');
+        Schema::dropIfExists('folio');
     }
 }
