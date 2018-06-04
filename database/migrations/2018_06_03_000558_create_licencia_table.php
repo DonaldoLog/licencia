@@ -19,6 +19,7 @@ class CreateLicenciaTable extends Migration
             $table->string('tipoLice');
             $table->date('fechaIni');
             $table->date('fechaFin');
+            $table->integer('numLicencia');
             $table->timestamps();
         });
     }

@@ -34,16 +34,18 @@
                        <br><br>
                        <label for="">{!!$usuario->nombre." ".$usuario->primerAp." ".$usuario->segundoAp!!}</label>
                        <br> <br>
-                       HACIENDA DE CORRALEJO #15 REVOLUCION
+                       {!!$usuario->direccion!!}
+
                        <br>
                        CP {!!$datos->cp!!}
                        <br><br>
-                       Nacimiento: <label for="">05/05/2000</label><br>
+                       Nacimiento: <label for="">{!!$usuario->fechaNac!!}</label><br>
                        Nacionalidad: <label for="">MEXICANA</label><br>
                        CURP:<label for="">{!!$usuario->curp!!}</label><br>
                        Folio: <label for="">{!!$usuario->folio!!}</label><br>
-                       {{-- Sexo: <label for="">{!!$usuario->folio!!}</label><br> --}}
-                       {{-- Tipo de sangre: <label for="">O*</label><br> --}}
+                       Sexo: <label for="">{!!$usuario->sexo!!}</label><br>
+                       Tipo de sangre: <label for="">{!!$usuario->sangre!!}</label><br>
+                       Vigencia: <label for="">{!!$licencia->fechaFin!!}</label><br>
                    </div>
                </div>
            </div>
@@ -53,7 +55,7 @@
                <img src="../public/storage/fotos/{!!$datos->foto!!}" style="width: 140px; height: 160px;"><br>
                No. de Licencia
                <br>
-               <label for="" style="color:red;">01010101010101</label>
+               <label for="" style="color:red;">{!!$licencia->numLicencia!!}</label>
                <br><br>
                Tipo<br>
                <h1>{!!$licencia->tipoLice!!}</h1>

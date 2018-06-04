@@ -13,6 +13,10 @@ class Usuario extends Model
         'primerAp',
         'segundoAp',
         'curp',
-        'folio'
+        'folio',
+        'fechaNac',
+        'direccion',
+        'sexo',
+        'sangre'
     ];
 }

@@ -34,6 +34,26 @@
 					<div class="col-md-4"> {!!Form::label('nombre','Nombre:')!!} </div>
 					{!!Form::text('nombre',null,['class'=>'form-control input-50','required'])!!}
 				</div>
+
+				<div>
+					<div class="col-md-4"> {!!Form::label('fechaNac','Fecha Nacimiento:')!!} </div>
+					{!!Form::date('fechaNac',null,['class'=>'form-control input-50','required'])!!}
+				</div>
+
+				<div>
+					<div class="col-md-4"> {!!Form::label('direccion','Direccion:')!!} </div>
+					{!!Form::text('direccion',null,['class'=>'form-control input-50','required'])!!}
+				</div>
+
+				<div>
+					<div class="col-md-4"> {!!Form::label('sexo','Sexo:')!!} </div>
+					{!!Form::select('sexo',['HOMBRE'=>'HOMBRE','MUJER'=>'MUJER'],null,['class'=>'form-control','placeholder'=>'Seleccione','required'])!!}
+				</div>
+
+				<div>
+					<div class="col-md-4"> {!!Form::label('sangre','Tipo de sangre:')!!} </div>
+					{!!Form::select('sangre',['O+'=>'O+','O-'=>'O-','A+'=>'A+','A-'=>'A-'],null,['class'=>'form-control','placeholder'=>'Seleccione','required'])!!}
+				</div>
 			</div>
 			<br>
 			<div id="contenedor">
@@ -90,6 +110,10 @@
 		curp=$('#curp').val();
 		tiempo= $("#tiempo option:selected").val();
 		tipoLice= $("#tipoLic option:selected").val();
+		fechaNac=$('#fechaNac').val();
+		direccion=$('#direccion').val();
+		sexo=$("#sexo option:selected").val();
+		sangre=$("#sangre option:selected").val();
 		costo=0;
 		años=0;
 		if(tiempo=='1'){
@@ -121,7 +145,11 @@
 					tiempo: tiempo,
 					costo:costo,
 					tipoProceso:'Nueva Licencia',
-					años:años
+					años:años,
+					sexo:sexo,
+					fechaNac:fechaNac,
+					direccion:direccion,
+					sangre:sangre
 				},
 				success(data) {
 					console.log(data);

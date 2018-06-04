@@ -20,6 +20,10 @@ class CreateUsuariosTable extends Migration
             $table->string('segundoAp',200);
             $table->string('curp',18);
             $table->integer('folio')->unique();
+            $table->date('fechaNac');
+            $table->string('direccion');
+            $table->string('sexo');
+            $table->string('sangre');
             $table->timestamps();
         });
     }

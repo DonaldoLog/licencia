@@ -12,6 +12,7 @@ class Licencia extends Model
         'idUsuario',
         'tipoLice',
         'fechaIni',
-        'fechaFin'
+        'fechaFin',
+        'numLicencia'
     ];
 }

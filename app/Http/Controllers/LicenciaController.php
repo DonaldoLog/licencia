@@ -15,19 +15,26 @@ class LicenciaController extends Controller
     public function store(Request $request)
     {
         $añoIni=Carbon::now();
-        $finaño=$añoIni->addYears($request->años);
         $usuario= new Usuario($request->all());
         $folio=Folio::find(1);
         $folio->folio=$folio->folio+1;
         $folio->save();
         $usuario->folio=$folio->folio;
+        $usuario->fechaNac=date('Y-m-d', strtotime($request->fechaNac));;
         $usuario->save();
 
         $licencia= new Licencia();
         $licencia->idUsuario=$usuario->id;
         $licencia->tipoLice=$request->tipoLice;
         $licencia->fechaIni=$añoIni->toDateString();
+        $finaño=$añoIni->addYears($request->años);
         $licencia->fechaFin=$finaño->toDateString();
+
+        $numLicencia=Folio::find(3);
+        $numLicencia->folio=$numLicencia->folio+1;
+        $numLicencia->save();
+        $licencia->numLicencia=$numLicencia->folio;
+
         $licencia->save();
 
         $proceso= new Proceso();
