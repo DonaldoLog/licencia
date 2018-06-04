@@ -6,8 +6,8 @@
 	<meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	<title> Licencia</title>
-	<link href="css/bootstrap.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/estilos.css') }}">
     @routes
 </head>
 

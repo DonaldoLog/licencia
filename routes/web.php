@@ -32,10 +32,12 @@ Route::get('/renovacion', 'NuevaLicenciaController@renovacion')->name('renovacio
 
 Route::get('/referencia-de-pago', 'NuevaLicenciaController@referencia')->name('referencia');
 
-Route::get('/nueva-licencia-paso-2', 'NuevaLicenciaController@nuevalicenciaP2')->name('nuevalicenciaP2');
+// Route::get('/nueva-licencia-paso-2', 'NuevaLicenciaController@nuevalicenciaP2')->name('nuevalicenciaP2');
 
 Route::get('/licencia', 'NuevaLicenciaController@generalicencia')->name('generalicencia');
 
 /*------------------------ RUTAS PARA INICAR LICENCIA---------------------------------*/
 
     Route::post('licencia-store', 'LicenciaController@store')->name('store.usuario');
+    Route::post('nueva-licencia/continuar','LicenciaController@continuarRegistro')->name('continuar.registro');
+    Route::post('generar-licencia','LicenciaController@datosLicencia')->name('datos.licencia');

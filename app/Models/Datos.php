@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Datos extends Model
 {
-    public $table = 'licencia';
+    public $table = 'datos';
 
     public $fillable = [
         'idUsuario',

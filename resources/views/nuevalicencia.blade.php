@@ -61,10 +61,10 @@
 			<br>
 			<div id="suplente" class="col-md-3"></div>
 			<div id="contenedor3" class="col-md-6">
-				<div>Tipo de licencia:</div>
-				<div>Monto a pagar:</div>
-				<div>ID Usuario:</div>
-				<div>Referencia:</div>
+				<div id='labelTipoLic'>Tipo de licencia:</div>
+				<div id='labelCosto'>Monto a pagar:</div>
+				<div id='labelFolio'>ID Usuario:</div>
+				<div id='labelRefe'>Referencia:</div>
 			</div>
 			<div id="suplente" class="col-md-3"></div>
 
@@ -126,6 +126,10 @@
 				success(data) {
 					console.log(data);
 					 $('#aceptar').prop('disabled', true);
+					 $('#labelTipoLic').append(data.tipoLice);
+					 $('#labelCosto').append(data.costo);
+					 $('#labelFolio').append(data.folio);
+					 $('#labelRefe').append(data.referencia);
 				},
 				error(e) {
 					console.log(e);

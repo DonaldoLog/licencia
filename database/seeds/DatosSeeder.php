@@ -15,5 +15,9 @@ class DatosSeeder extends Seeder
         $folio=new Folio();
         $folio->folio=856546200;
         $folio->save();
+
+        $referencia=new Folio();
+        $referencia->folio=956546200;
+        $referencia->save();
     }
 }
