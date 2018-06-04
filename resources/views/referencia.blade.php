@@ -27,7 +27,56 @@
 			De preferencia realizar su pago en tiendas OXXO y bancos participantes: Banorte, Banamex, BBVA Bancomer, Santander, HSBC.
 		</div>
 		<br>
- @include ('templates.partials.footer')
+		<div align="center" class="form-group">
+			<div>
+				Total a pagar:
+			</div>
+			<div>
+				Referencia OXXO:
+			</div>
+			<div>
+				Fecha de pago:
+			</div>
+			<div>
+				Siguiente fecha de pago:
+			</div>
+			<div class="">
+				<img src="images/oxxo.png" style="width: 150px; height: 80px; padding-top: 10px;">
+
+			</div>
+			<br>
+			<br>
+			<div class="col-md-6">
+					Convenio BBVA Bancomer <br>
+					numero <br><br>
+					Convenio Banamex <br>
+					numero <br><br>
+					Convenio Banorte <br>
+					numero <br><br>
+					Convenio Santander <br>
+					numero <br><br>
+					Convenio HSBC <br>
+					numero <br><br>
+			</div>
+			<div class="col-md-6">
+					Referencia BBVA Bancomer <br>
+					numero <br><br>
+					Referencia Banamex <br>
+					numero <br><br>
+					Referencia Banorte <br>
+					numero <br><br>
+					Referencia Santander <br>
+					numero <br><br>
+					Referencia HSBC <br>
+					numero <br><br>
+
+			</div>
+
+		</div>
+
+	</div>
+
 </div>
+@include ('templates.partials.footer')
 </body>
 </html>

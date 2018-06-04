@@ -48,9 +48,13 @@ class NuevaLicenciaController extends Controller
     {
         return view('licencia');
     }
+    public function renovacionp2()
+    {
+        return view('renovacionp2');
+    }
 
 
-    
+
 
     /**
      * Show the form for creating a new resource.
