@@ -13,22 +13,29 @@ use App\Models\Proceso;
 class RenovacionController extends Controller
 {
     public function getUser(Request $request){
-        $usuario=Licencia::where('numLicencia','=',$request->numLicencia)->get();
-        $proceso=Proceso::where('idUsuario','=',$usuario->idUsuario)->get();
 
-        if(count($usuario)>0 && count($proceso>0)){
-            if($proceso[0]->estado==0){
-                return [true];
+        $usuario=Licencia::where('numLicencia','=',$request->numLicencia)->get();
+        //dd($usuario);
+        if(count($usuario)>0){
+            $proceso=Proceso::where('idUsuario','=',$usuario[0]->idUsuario)->get();
+            if(count($proceso)>0){
+                if($proceso[0]->estado==1){
+                    return [true];
+                }else {
+                    return [false];
+                }
             }else {
                 return [false];
             }
         }else {
             return [false];
+
         }
+
     }
 
     public function store(Request $request){
-        dd($request);
+    //    dd($request);
         $usuario=Licencia::where('numLicencia','=',$request->numLicencia)->get()->first();
 
         $proceso=Proceso::where('idUsuario','=',$usuario->idUsuario)->get()->first();
@@ -39,12 +46,64 @@ class RenovacionController extends Controller
         $referencia->save();
 
         $proceso->referencia=$referencia->folio;
+        $costo=0;
+        if($request->tiempo=="3"){
+            $costo=1260;
+
+        }elseif ($request->tiempo=="2") {
+            $costo=1000;
+
+        }elseif ($request->tiempo=="1") {
+            $costo=560;
+        }
+        $proceso->costo=$costo;
+        $proceso->estado=1;
+        $proceso->save();
 
 
 
+        // AQUI IMPRIME PDF
+
+        return view('welcome');
+    }
+
+    public function generarLicencia(Request $request){
+        $datos=Datos::where('idUsuario','=',$request->idUsuario)->get()->first();
+        //dd($request);
+        $file = $request->file('testMedico');
+        $name = 'testMedico_'.$request->idUsuario.time().'.'.$file->getClientOriginalExtension();
+        $path = public_path().'\storage\testMedicos\\';
+        $file->move($path, $name);
+
+        $datos->testMedico=$name;
+        //test foto
+        $file = $request->file('foto');
+        $name = 'foto'.$request->idUsuario.time().'.'.$file->getClientOriginalExtension();
+        $path = public_path().'\storage\fotos\\';
+        $file->move($path, $name);
+
+        $datos->foto=$name;
+
+        //test comprobanteDomicilio
+        $file = $request->file('comprobanteDomicilio');
+        $name = 'comprobanteDomicilio'.$request->idUsuario.time().'.'.$file->getClientOriginalExtension();
+        $path = public_path().'\storage\comprobantesDomicilio\\';
+        $file->move($path, $name);
+
+        $datos->comprobanteDomicilio=$name;
 
 
-        return ['success'=>true];
+        $datos->save();
+
+        $proceso=Proceso::where('idUsuario','=',$request->idUsuario)->get()->first();
+        $proceso->estado=1;
+        $proceso->save();
+
+        $usuario=Usuario::find($request->idUsuario);
+        $licencia=Licencia::where('idUsuario',$request->idUsuario)->get()->first();
+
+        return view('licencia')->with('usuario',$usuario)->with('datos',$datos)->with('licencia',$licencia);
+
     }
 
 }

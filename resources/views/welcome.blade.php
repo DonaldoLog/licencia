@@ -1,24 +1,14 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/estilos.css">
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <title>Licencia</title>
+@extends('templates.main')
+@section('content')
 
-    </head>
-    <body>
-         <body>
-        <div class="container">
-            <div id="wrapper">
-                @include ('templates.partials.header')
-                @include ('templates.partials.navbar')
-            </div>
+    <div class="container">
+        <div id="wrapper">
+            @include ('templates.partials.header')
+            @include ('templates.partials.navbar')
+        </div>
         <div id="wrapper2">
             <a type="button" class="btn btn-default" href="{{route('documentos')}}" style="float: left;">DOCUMENTOS</a>
-             <a type="button" class="btn btn-default" href="{{route('contregistro')}}" style="float: right;">CONTINUAR REGISTRO</a>
+            <a type="button" class="btn btn-default" href="{{route('contregistro')}}" style="float: right;">CONTINUAR REGISTRO</a>
         </div>
 
         <div>
@@ -28,7 +18,7 @@
 
         </div>
         <div id="wrapper2" align="center">
-            <img src="images/tramita.jpg" alt="" style="height: 500px; width: 800px;">
+            <img src="{{ asset('images/tramita.jpg') }}" alt="" style="height: 500px; width: 800px;">
         </div>
         <br>
         <div class="container" id="wrapper">
@@ -37,9 +27,7 @@
             Cualquier vehiculo que no cumpla con lo anterios, o que ademas exceda las 3.5 toneladas debe portar una licencia diferente, la tipo B.
         </div>
 
-            @include ('templates.partials.footer')
-        </div>
+        @include ('templates.partials.footer')
+    </div>
 
-    <script src="js/bootstrap.min.js"></script>
-    </body>
-</html>
+@endsection

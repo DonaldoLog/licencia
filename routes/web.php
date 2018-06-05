@@ -46,3 +46,4 @@ Route::get('/licencia', 'NuevaLicenciaController@generalicencia')->name('general
 /*------------------------ RUTAS PARA INICAR LICENCIA---------------------------------*/
     Route::post('renovacion-store', 'RenovacionController@store')->name('store.renovacion');
     Route::post('get-usuario/renovacion', 'RenovacionController@getUser')->name('get.usuario');
+    Route::post('renovacion/licencia', 'RenovacionController@generarLicencia')->name('generar.licencia');
