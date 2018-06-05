@@ -13,20 +13,20 @@
 
 
     </head>
-    <body><div class="container" style="padding: 30px;">
+    <body style="width: 400px;height: 300px;"><div class="container">
         <div class="container" style="border-top: 1px solid black;border-left: 1px solid black;border-bottom: 1px solid black;border-right: 1px solid black;border-radius: 10px;">
 
 
            <div class="col-md-9">
             <div class="col-md-12">
-                 <img src="images/logo1.png" style="width: 150px; height: 80px; padding-top: 10px;float:left;">
-                <img src="images/logo2.png" style="width: 120px; height: 80px; padding-top: 10px;float:right;">
+                 <img src="images/logo1.png" style="width: 100px; height: 50px; padding-top: 10px;float:left;">
+                <img src="images/logo2.png" style="width: 100px; height: 50px; padding-top: 10px;float:right;">
             </div>
 
                 <div >
                    <div class="col-md-5" align="center">
                     <br><br>
-                       <img src="images/chip.png" style="width: 140px; height: 90px;"><br>
+                       <img src="images/chip.png" style="width: 80px; height: 30px;"><br>
                        Estados Unidos Mexicanos <br>
                        <h4>LICENCIA <br> PARA CONDUCIR</h4>
                    </div>
@@ -52,7 +52,7 @@
 
            <div class="col-md-3" align="center">
             <br><br>
-               <img src="../public/storage/fotos/{!!$datos->foto!!}" style="width: 140px; height: 160px;"><br>
+               <img src="../public/storage/fotos/{!!$datos->foto!!}" style="width: 60px; height: 30px;"><br>
                No. de Licencia
                <br>
                <label for="" style="color:red;">{!!$licencia->numLicencia!!}</label>
@@ -61,7 +61,7 @@
                <h1>{!!$licencia->tipoLice!!}</h1>
            </div>
 
-          <img src="images/foter.png" style="width: 1153px;border-radius: 10px"><br>
+          <img src="images/foter.png" style="width: 500px;border-radius: 10px"><br>
         </div>
 </div>
     <script src="js/bootstrap.min.js"></script>

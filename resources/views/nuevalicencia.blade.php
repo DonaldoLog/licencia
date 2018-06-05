@@ -72,11 +72,13 @@
 				<div class="col-md-6" align="center">
 					{!!Form::select('tiempo',['1'=>'1 año - $560.00','2'=>'2 años - $1000.00','3'=>'3 años - $1260.00'],null,['id'=>'tiempo','class'=>'form-control','placeholder'=>'Seleccione','required'])!!}
 				</div>
+				</div>
+
 				<br><br>
 				<div align="center">
-					<button class="btn btn-succes" id="aceptar"></button>
+					<a class="btn btn-succes" id="aceptar">Aceptar</a>
 
-			</div>
+				</div>
 			
 			<br>
 			<div id="suplente" class="col-md-3"></div>
@@ -87,15 +89,15 @@
 				<div id='labelRefe'>Referencia:</div>
 			</div>
 			<div id="suplente" class="col-md-3"></div>
+		
 
-		</div>
 		<div align="center">
 			{!!Form::submit('Generar referencia')!!}
 		</div>
 		{!!Form::close()!!} 
-		@include ('templates.partials.footer')
-
-	</div>
+		
+</div></div>
+@include ('templates.partials.footer')
 @endsection
 @push('scripts')
 	<script type="text/javascript">
