@@ -19,7 +19,7 @@
 			</div>
 			<br>
 			<div id="contenedor">
-				{{-- {!!Form::open(['route'=>'store.usuario','method'=>'post'])!!} --}}
+				{!!Form::open(['route'=>'generar.referencia','method'=>'post'])!!}
 				<div>
 					<div class="col-md-4">
 						{!!Form::label('primerAp','Primer Apellido:')!!}
@@ -74,10 +74,10 @@
 				</div>
 				<br><br>
 				<div align="center">
-					{!!Form::submit('Aceptar',['class'=>'btn btn-succes','id'=>'aceptar'])!!}</div>
+					<button class="btn btn-succes" id="aceptar"></button>
 
 			</div>
-			{{-- {!!Form::close()!!} --}}
+			
 			<br>
 			<div id="suplente" class="col-md-3"></div>
 			<div id="contenedor3" class="col-md-6">
@@ -90,8 +90,9 @@
 
 		</div>
 		<div align="center">
-			<a type="button" class="btn btn-default" href="{{route('referencia')}}">Ver referencia</a>
+			{!!Form::submit('Generar referencia')!!}
 		</div>
+		{!!Form::close()!!} 
 		@include ('templates.partials.footer')
 
 	</div>

@@ -9,17 +9,8 @@
                 <script src="js/jquery.js"></script>
                 <script src="js/main.js"></script></head>
 <body>
-	<div class="container">
-	<div id="wrapper">
-                @include ('templates.partials.header')
-    </div>
-
-
-	<div class="container col-md-3 col-sm-3" id="wrapper3">
-		 @include ('templates.partials.sidebar')
-	</div>
-
-	<div class="container col-md-9 col-sm-9" id="wrapper3">
+	<div class="container" align="center">
+	<div class="container col-md-12 col-sm-12" id="wrapper3">
 		<div>
 			<h1 style="color:red;">IMPORTANTE</h1>
 		</div>
@@ -28,55 +19,28 @@
 		</div>
 		<br>
 		<div align="center" class="form-group">
+			<div class="col-md-6"><img src="images/logo1.png" style="width: 170px; height: 80px; padding-top: 10px;"></div>
 			<div>
-				Total a pagar:
+				Total a pagar: {!!$proceso->costo!!}
 			</div>
 			<div>
-				Referencia OXXO:
+				Referencia OXXO: {!!$proceso->referencia!!}
 			</div>
 			<div>
-				Fecha de pago:
-			</div>
-			<div>
-				Siguiente fecha de pago:
+				Folio de Licencia: {!!$usuario->folio!!}
 			</div>
 			<div class="">
 				<img src="images/oxxo.png" style="width: 150px; height: 80px; padding-top: 10px;">
 
 			</div>
+			<div class="col-md-12"><img src="images/abajo.jpg" style="width: 700px; height: 100px; padding-top: 10px;"></div>
 			<br>
 			<br>
-			<div class="col-md-6">
-					Convenio BBVA Bancomer <br>
-					numero <br><br>
-					Convenio Banamex <br>
-					numero <br><br>
-					Convenio Banorte <br>
-					numero <br><br>
-					Convenio Santander <br>
-					numero <br><br>
-					Convenio HSBC <br>
-					numero <br><br>
-			</div>
-			<div class="col-md-6">
-					Referencia BBVA Bancomer <br>
-					numero <br><br>
-					Referencia Banamex <br>
-					numero <br><br>
-					Referencia Banorte <br>
-					numero <br><br>
-					Referencia Santander <br>
-					numero <br><br>
-					Referencia HSBC <br>
-					numero <br><br>
-
-			</div>
+			
 
 		</div>
 
 	</div>
-
 </div>
-@include ('templates.partials.footer')
 </body>
 </html>
