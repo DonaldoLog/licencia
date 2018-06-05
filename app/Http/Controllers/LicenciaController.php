@@ -56,7 +56,6 @@ class LicenciaController extends Controller
     public function generarReferencia(Request $request) {
         $usuario = Usuario::where('curp', '=', $request->curp)->get()->first();
         $proceso = Proceso::where('idUsuario', '=', $usuario->id)->get()->first();
-
         $data=['usuario'=>$usuario,'proceso'=>$proceso];
         $pdf = PDF::loadView('referencia',$data)->setPaper('a4', 'landscape');
         return $pdf->stream('referencia.pdf');

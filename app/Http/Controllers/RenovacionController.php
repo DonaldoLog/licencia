@@ -59,7 +59,7 @@ class RenovacionController extends Controller
             $costo=560;
         }
         $proceso->costo=$costo;
-        $proceso->estado=1;
+        $proceso->estado=0;
         $proceso->save();
         //dd($usuario);
         $data=['licencia'=>$licencia,'usuario'=>$usuario,'proceso'=>$proceso];
@@ -95,7 +95,12 @@ class RenovacionController extends Controller
         $path = public_path().'\storage\comprobantesDomicilio\\';
         $file->move($path, $name);
 
+        $usuario=Usuario::find($request->idUsuario);
+        $usuario->direccion=$request->direccion;
+        $usuario->save();
+
         $datos->comprobanteDomicilio=$name;
+
 
 
         $datos->save();
