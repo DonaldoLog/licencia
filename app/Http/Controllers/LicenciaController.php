@@ -128,7 +128,7 @@ class LicenciaController extends Controller
         $licencia=Licencia::where('idUsuario',$request->idUsuario)->get()->first();
 
             $data=['usuario'=>$usuario,'datos'=>$datos,'licencia'=>$licencia];
-            $pdf = PDF::loadView('licencia',$data)->setPaper('a4', 'landscape');
+            $pdf = PDF::loadView('licencia',$data)->setPaper('letter', 'landscape');
             return $pdf->stream('licencia-nueva.pdf');
 
         return view('licencia')->with('usuario',$usuario)->with('datos',$datos)->with('licencia',$licencia);

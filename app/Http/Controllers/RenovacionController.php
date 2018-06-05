@@ -8,7 +8,7 @@ use App\Models\Folio;
 use App\Models\Usuario;
 use App\Models\Licencia;
 use App\Models\Proceso;
-
+use PDF;
 
 class RenovacionController extends Controller
 {
@@ -35,10 +35,12 @@ class RenovacionController extends Controller
     }
 
     public function store(Request $request){
-    //    dd($request);
-        $usuario=Licencia::where('numLicencia','=',$request->numLicencia)->get()->first();
+       //dd($request);
+        $licencia=Licencia::where('numLicencia', '=', $request->numLicencia)->get()->first();
 
-        $proceso=Proceso::where('idUsuario','=',$usuario->idUsuario)->get()->first();
+        $proceso=Proceso::where('idUsuario','=',$licencia->idUsuario)->get()->first();
+        $usuario=Usuario::where('id', '=', $proceso->idUsuario)->get()->first();
+
         $proceso->tipoProceso='Renovacion';
 
         $referencia=Folio::find(2);
@@ -59,10 +61,13 @@ class RenovacionController extends Controller
         $proceso->costo=$costo;
         $proceso->estado=1;
         $proceso->save();
-
-
+        //dd($usuario);
+        $data=['licencia'=>$licencia,'usuario'=>$usuario,'proceso'=>$proceso];
+        $pdf = PDF::loadView('referencia',$data)->setPaper('a4', 'landscape');
+        return $pdf->stream('referencia.pdf');
 
         // AQUI IMPRIME PDF
+
 
         return view('welcome');
     }
@@ -101,6 +106,10 @@ class RenovacionController extends Controller
 
         $usuario=Usuario::find($request->idUsuario);
         $licencia=Licencia::where('idUsuario',$request->idUsuario)->get()->first();
+
+        $data=['usuario'=>$usuario,'datos'=>$datos,'licencia'=>$licencia];
+            $pdf = PDF::loadView('licencia',$data)->setPaper('a4', 'landscape');
+            return $pdf->stream('licencia-nueva.pdf');
 
         return view('licencia')->with('usuario',$usuario)->with('datos',$datos)->with('licencia',$licencia);
 

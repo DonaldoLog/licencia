@@ -27,7 +27,7 @@
 				Referencia OXXO: {!!$proceso->referencia!!}
 			</div>
 			<div>
-				Folio de Licencia: {!!$usuario->folio!!}
+				Folio de Usuario: {!!$usuario->folio!!}
 			</div>
 			<div class="">
 				<img src="images/oxxo.png" style="width: 150px; height: 80px; padding-top: 10px;">
