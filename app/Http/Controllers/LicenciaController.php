@@ -9,6 +9,7 @@ use App\Models\Licencia;
 use App\Models\Proceso;
 use App\Models\Datos;
 use Carbon\Carbon;
+use PDF;
 
 class LicenciaController extends Controller
 {
@@ -50,6 +51,15 @@ class LicenciaController extends Controller
 
 
         return ['tipoLice'=>$licencia->tipoLice,'costo'=>$request->costo,'folio'=>$usuario->folio,'referencia'=>$proceso->referencia];
+    }
+
+    public function generarReferencia(Request $request) {
+        $usuario = Usuario::where('curp', '=', $request->curp)->get()->first();
+        $proceso = Proceso::where('idUsuario', '=', $usuario->id)->get()->first();
+
+        $data=['usuario'=>$usuario,'proceso'=>$proceso];
+        $pdf = PDF::loadView('referencia',$data)->setPaper('a4', 'landscape');
+        return $pdf->stream('referencia.pdf');
     }
 
     public function continuarRegistro(Request $request)
@@ -115,6 +125,10 @@ class LicenciaController extends Controller
 
         $usuario=Usuario::find($request->idUsuario);
         $licencia=Licencia::where('idUsuario',$request->idUsuario)->get()->first();
+
+            $data=['usuario'=>$usuario,'datos'=>$datos,'licencia'=>$licencia];
+            $pdf = PDF::loadView('licencia',$data)->setPaper('a4', 'landscape');
+            return $pdf->stream('licencia-nueva.pdf');
 
         return view('licencia')->with('usuario',$usuario)->with('datos',$datos)->with('licencia',$licencia);
     }
