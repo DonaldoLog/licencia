@@ -65,7 +65,7 @@ class LicenciaController extends Controller
     {
         $datos=Proceso::where('referencia', '=', $request->referencia)->get();
         $usuario=Usuario::where('folio', '=', $request->folio)->get();
-        if (!is_null($datos) && !is_null($usuario)) {
+        if (count($datos)>0 && count($usuario)>0) {
             if ($datos[0]->idUsuario==$usuario[0]->id && $datos[0]->estado==0) {
                 if ($datos[0]->tipoProceso=='Nueva Licencia') {
                     return view('nuevalicenciap2')->with('datos', $datos[0]);
