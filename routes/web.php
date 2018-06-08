@@ -34,6 +34,14 @@ Route::get('/referencia-de-pago', 'NuevaLicenciaController@referencia')->name('r
 
 Route::get('/renovacion-parte2', 'NuevaLicenciaController@renovacionp2')->name('renovacionp2');
 
+Route::get('/extravio', 'NuevaLicenciaController@extravio')->name('extravio');
+
+Route::get('/pre-extravio', 'NuevaLicenciaController@preextravio')->name('pre.extravio');
+
+Route::get('/pre-registro-menor-edad', 'NuevaLicenciaController@premenoredad')->name('pre.menoredad');
+
+Route::get('/registro-menor-edad', 'NuevaLicenciaController@menoredad')->name('menoredad');
+
 // Route::get('/nueva-licencia-paso-2', 'NuevaLicenciaController@nuevalicenciaP2')->name('nuevalicenciaP2');
 
 Route::get('/licencia', 'NuevaLicenciaController@generalicencia')->name('generalicencia');

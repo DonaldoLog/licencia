@@ -52,7 +52,22 @@ class NuevaLicenciaController extends Controller
     {
         return view('renovacionp2');
     }
-
+    public function extravio()
+    {
+        return view('extravio');
+    }
+    public function preextravio()
+    {
+        return view('preextravio');
+    }
+    public function premenoredad()
+    {
+        return view('menoredad');
+    }
+    public function menoredad()
+    {
+        return view('registromenoredad');
+    }
 
 
 
