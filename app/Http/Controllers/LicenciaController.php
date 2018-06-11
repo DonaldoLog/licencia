@@ -71,7 +71,15 @@ class LicenciaController extends Controller
                     return view('nuevalicenciap2')->with('datos', $datos[0])->with('usuario',$usuario[0]);
                 } elseif ($datos[0]->tipoProceso=='Renovacion') {
 
-                    return view('renovacionp2')->with('datos', $datos[0])->with('usuario',$usuario[0]);
+                    $tiempo=0;
+                    if($datos[0]->costo==1260){
+                        $tiempo=3;
+                    }else if($datos[0]->costo==1000){
+                        $tiempo=2;
+                    }else if($datos[0]->costo==560){
+                        $tiempo=1;
+                    }
+                    return view('renovacionp2')->with('tiempo',$tiempo)->with('datos', $datos[0])->with('usuario',$usuario[0]);
 
                 }
             } else {
@@ -125,8 +133,15 @@ class LicenciaController extends Controller
 
         $usuario=Usuario::find($request->idUsuario);
         $licencia=Licencia::where('idUsuario',$request->idUsuario)->get()->first();
+        $hoy=Carbon::now();
 
-            $data=['usuario'=>$usuario,'datos'=>$datos,'licencia'=>$licencia];
+        $datetime2 = strtotime($licencia->fechaIni);
+        $datetime1 = strtotime($hoy->toDateString());
+        $secs = $datetime1 - $datetime2;// == <seconds between the two times>
+        $days = $secs / 86400;
+
+        $anti=
+            $data=['usuario'=>$usuario,'datos'=>$datos,'licencia'=>$licencia,'dias'=>$days];
             $pdf = PDF::loadView('licencia',$data)->setPaper('letter', 'landscape');
             return $pdf->stream('licencia-nueva.pdf');
 

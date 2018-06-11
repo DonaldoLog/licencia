@@ -46,6 +46,7 @@
                        Sexo: <label for="">{!!$usuario->sexo!!}</label><br>
                        Tipo de sangre: <label for="">{!!$usuario->sangre!!}</label><br>
                        Vigencia: <label for="">{!!$licencia->fechaFin!!}</label><br>
+                       Antiguedad: <label for="">{!!$dias. " dias."!!}</label><br>
                    </div>
                </div>
            </div>

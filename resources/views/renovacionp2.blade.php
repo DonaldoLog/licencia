@@ -28,6 +28,7 @@
             <div id="contenedor">
                 {!!Form::open(['route'=>'generar.licencia','method'=>'post','enctype'=>'multipart/form-data'])!!}
                 {!!Form::hidden('idUsuario',$datos->idUsuario)!!}
+                {!!Form::hidden('tiempo',$tiempo)!!}
 
                 <div>
                     <div class="col-md-3"> {!!Form::label('direccion','Direccion:')!!}</div>

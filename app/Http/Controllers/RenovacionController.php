@@ -116,10 +116,22 @@ class RenovacionController extends Controller
         $proceso->estado=1;
         $proceso->save();
 
+
+        $hoy=Carbon::now();
+
+
         $usuario=Usuario::find($request->idUsuario);
         $licencia=Licencia::where('idUsuario',$request->idUsuario)->get()->first();
+        $fechaFin=new Carbon($licencia->fechaFin);
+        $licencia->fechaFin=$fechaFin->addYears($request->tiempo);
+        $licencia->save();
+        $datetime2 = strtotime($licencia->fechaIni);
+        $datetime1 = strtotime($hoy->toDateString());
+        $secs = $datetime1 - $datetime2;// == <seconds between the two times>
+        $days = $secs / 86400;
 
-        $data=['usuario'=>$usuario,'datos'=>$datos,'licencia'=>$licencia];
+
+        $data=['usuario'=>$usuario,'datos'=>$datos,'licencia'=>$licencia,'dias'=>$days];
             $pdf = PDF::loadView('licencia',$data)->setPaper('a4', 'landscape');
             return $pdf->stream('licencia-nueva.pdf');
 
