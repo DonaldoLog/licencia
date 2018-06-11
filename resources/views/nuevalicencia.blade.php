@@ -165,8 +165,8 @@
 				},
 				success(data) {
 					console.log(data);
-					$('#aceptar').prop('disabled', true);
-					 $('#gemerar').prop('disabled', false);
+					$('#aceptar').hide();
+					 $('#generar').prop('disabled', false);
 					 $('#labelTipoLic').html("Tipo de licencia: "+data.tipoLice);
 					 $('#labelCosto').html("Monto a pagar: "+data.costo);
 					 $('#labelFolio').html("ID Usuario(folio): "+data.folio);
