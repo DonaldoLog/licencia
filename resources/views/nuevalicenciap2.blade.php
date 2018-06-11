@@ -14,6 +14,9 @@
 		<div>
 			<h1>Nueva Licencia Paso 2</h1>
 		</div>
+		<div align="center">
+			<h3>{!!$usuario->nombre." ".$usuario->primerAp." ".$usuario->segundoAp!!}</h3>
+		</div>
 		<div>
 			<h5 style="color:red;">Llena los campos que se piden.</h5>
 		</div>

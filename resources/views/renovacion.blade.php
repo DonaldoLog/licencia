@@ -39,7 +39,7 @@
 				{!!Form::label('tipoLice','Tipo de licencia que solicita:')!!}
 			</div>
 			<div class="col-md-3">
-				{!!Form::select('tipoLice',['Automovilista'=>'Automovilista','Chofer'=>'Chofer','Motocicleta'=>'Motocicleta'],null,['id'=>'tipoLic','class'=>'form-control','placeholder'=>'Seleccione','required'])!!}
+				{!!Form::select('tipoLice',['A'=>'A','B'=>'B','C'=>'C'],null,['id'=>'tipoLic','class'=>'form-control','placeholder'=>'Seleccione','required'])!!}
 			</div>
 		</div>
 		<br>

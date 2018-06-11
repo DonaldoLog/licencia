@@ -15,6 +15,9 @@
             <div>
                 <h1>Renovacion de licencia</h1>
             </div>
+            <div align="center">
+                <h3>{!!$usuario->nombre." ".$usuario->primerAp." ".$usuario->segundoAp!!}</h3>
+            </div>
             <div>
                 <h3>Aviso</h3>
             </div>
@@ -25,6 +28,7 @@
             <div id="contenedor">
                 {!!Form::open(['route'=>'generar.licencia','method'=>'post','enctype'=>'multipart/form-data'])!!}
                 {!!Form::hidden('idUsuario',$datos->idUsuario)!!}
+
                 <div>
                     <div class="col-md-3"> {!!Form::label('direccion','Direccion:')!!}</div>
 

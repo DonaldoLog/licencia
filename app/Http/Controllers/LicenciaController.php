@@ -68,10 +68,10 @@ class LicenciaController extends Controller
         if (count($datos)>0 && count($usuario)>0) {
             if ($datos[0]->idUsuario==$usuario[0]->id && $datos[0]->estado==0) {
                 if ($datos[0]->tipoProceso=='Nueva Licencia') {
-                    return view('nuevalicenciap2')->with('datos', $datos[0]);
+                    return view('nuevalicenciap2')->with('datos', $datos[0])->with('usuario',$usuario[0]);
                 } elseif ($datos[0]->tipoProceso=='Renovacion') {
 
-                    return view('renovacionp2')->with('datos', $datos[0]);
+                    return view('renovacionp2')->with('datos', $datos[0])->with('usuario',$usuario[0]);
 
                 }
             } else {
