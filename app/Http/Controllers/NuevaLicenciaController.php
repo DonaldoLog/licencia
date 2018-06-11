@@ -15,6 +15,8 @@ class NuevaLicenciaController extends Controller
     {
         $catEstados=CatEstado::orderBy('id','asc')->pluck('nombre','id');
 
+
+
         return view('nuevalicencia')->with('catEstados',$catEstados);
     }
 
