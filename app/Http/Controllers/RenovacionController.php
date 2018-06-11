@@ -25,7 +25,7 @@ class RenovacionController extends Controller
                 // dd($usuario[0]->fechaFin);
                 if($proceso[0]->estado==1){
                     if($usuario[0]->fechaFin>$hoy){
-                        return [2];
+                        return [$usuario[0]->fechaFin];
                     }
                     return [true];
                 }else {

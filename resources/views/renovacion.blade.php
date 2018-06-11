@@ -90,8 +90,8 @@
 					}else if(data[0]==false) {
 						alert('No existe este usuario.')
 						$('#generar').prop('disabled', true);
-					}else if(data[0]==2){
-						alert('Su licencia esta aun vigente.')
+					}else if(data[0]!=""){
+						alert('Su licencia esta aun vigente hasta '+data[0]+'.')
 
 					}
 				},
