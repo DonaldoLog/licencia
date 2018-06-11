@@ -37,7 +37,12 @@
 
 				<div>
 					<div class="col-md-4"> {!!Form::label('fechaNac','Fecha Nacimiento:')!!} </div>
-					{!!Form::date('fechaNac',null,['class'=>'form-control input-50','required'])!!}
+					{!!Form::text('fechaNac',null,['class'=>'form-control input-50','required'])!!}
+				</div>
+
+				<div>
+					<div class="col-md-4"> {!!Form::label('idEstado','Estado de origen:')!!} </div>
+					{!!Form::select('idEstado',$catEstados,null,['class'=>'form-control','required','placeholder'=>'Seleccione'])!!}
 				</div>
 
 				<div>
@@ -47,7 +52,7 @@
 
 				<div>
 					<div class="col-md-4"> {!!Form::label('sexo','Sexo:')!!} </div>
-					{!!Form::select('sexo',['HOMBRE'=>'HOMBRE','MUJER'=>'MUJER'],null,['class'=>'form-control','placeholder'=>'Seleccione','required'])!!}
+					{!!Form::select('sexo',['H'=>'HOMBRE','M'=>'MUJER'],null,['class'=>'form-control','placeholder'=>'Seleccione','required'])!!}
 				</div>
 
 				<div>
@@ -66,10 +71,13 @@
 
 			<div id="contenedor" align="center">
 				<div class="col-md-6">
-					{!!Form::select('tipoLic',['Automovilista'=>'Automovilista','Chofer'=>'Chofer','Motocicleta'=>'Motocicleta'],null,['id'=>'tipoLic','class'=>'form-control','placeholder'=>'Seleccione','required'])!!}
+					{!!Form::label('tipoLic','Seleccione tipo de licencia:')!!}
+					{!!Form::select('tipoLic',['A'=>'A','B'=>'B','C'=>'C'],null,['id'=>'tipoLic','class'=>'form-control','placeholder'=>'Seleccione','required'])!!}
 				</div>
 
 				<div class="col-md-6" align="center">
+					{!!Form::label('tiempo','Seleccione vigencia:')!!}
+
 					{!!Form::select('tiempo',['1'=>'1 año - $560.00','2'=>'2 años - $1000.00','3'=>'3 años - $1260.00'],null,['id'=>'tiempo','class'=>'form-control','placeholder'=>'Seleccione','required'])!!}
 				</div>
 				</div>
@@ -79,7 +87,7 @@
 					<a class="btn btn-succes" id="aceptar">Aceptar</a>
 
 				</div>
-			
+
 			<br>
 			<div id="suplente" class="col-md-3"></div>
 			<div id="contenedor3" class="col-md-6">
@@ -89,13 +97,13 @@
 				<div id='labelRefe'>Referencia:</div>
 			</div>
 			<div id="suplente" class="col-md-3"></div>
-		
 
-		<div align="center">
-			{!!Form::submit('Generar referencia')!!}
+
+		<div class="col-md-12" align="center">
+			{!!Form::submit('Generar referencia',['class'=>'btn btn-success','id'=>'generar','disabled'=>true])!!}
 		</div>
-		{!!Form::close()!!} 
-		
+		{!!Form::close()!!}
+
 </div></div>
 @include ('templates.partials.footer')
 @endsection
@@ -111,6 +119,7 @@
 		segundoAp=$('#segundoAp').val();
 		nombre=$('#nombre').val();
 		curp=$('#curp').val();
+		estado=$('#idEstado').val();
 		tiempo= $("#tiempo option:selected").val();
 		tipoLice= $("#tipoLic option:selected").val();
 		fechaNac=$('#fechaNac').val();
@@ -132,7 +141,7 @@
 			costo=1260;
 			años=3;
 		}
-		if(primerAp=="" ||segundoAp=="" ||nombre=="" ||curp=="" ||tiempo=="" ||tipoLic==""){
+		if(primerAp=="" ||segundoAp=="" ||nombre=="" ||curp=="" ||tiempo=="" ||tipoLic==""||estado==""){
 			alert('Complete todos los campos');
 		}else {
 			$.ajax({
@@ -156,11 +165,12 @@
 				},
 				success(data) {
 					console.log(data);
-					 $('#aceptar').prop('disabled', true);
-					 $('#labelTipoLic').append(data.tipoLice);
-					 $('#labelCosto').append(data.costo);
-					 $('#labelFolio').append(data.folio);
-					 $('#labelRefe').append(data.referencia);
+					$('#aceptar').prop('disabled', true);
+					 $('#gemerar').prop('disabled', false);
+					 $('#labelTipoLic').html("Tipo de licencia: "+data.tipoLice);
+					 $('#labelCosto').html("Monto a pagar: "+data.costo);
+					 $('#labelFolio').html("ID Usuario(folio): "+data.folio);
+					 $('#labelRefe').html("Referencia: "+data.referencia);
 				},
 				error(e) {
 					console.log(e);
@@ -169,5 +179,17 @@
 		}
 
 	});
+
+	$( document ).ready(function() {
+    console.log( "ready!" );
+	$('#fechaNac').datepicker({
+		endDate: "06/11/2010",
+		startDate: "06/11/1900",
+		startView: 2,
+		maxViewMode: 2,
+		language: "es"
+		});
+	});
+
 </script>
 @endpush

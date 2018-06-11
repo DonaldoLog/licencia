@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\CatEstado;
 class NuevaLicenciaController extends Controller
 {
     /**
@@ -13,12 +13,15 @@ class NuevaLicenciaController extends Controller
      */
     public function index()
     {
-        return view('nuevalicencia');
+        $catEstados=CatEstado::orderBy('id','asc')->pluck('nombre','id');
+
+        return view('nuevalicencia')->with('catEstados',$catEstados);
     }
 
       public function nuevaLicencia()
     {
-        return view('nuevalicencia');
+        $catEstados=CatEstado::orderBy('id','asc')->pluck('nombre','id');
+        return view('nuevalicencia')->with('catEstados',$catEstados);
     }
             public function homex()
     {
