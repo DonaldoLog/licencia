@@ -24,7 +24,7 @@
 		{!!Form::hidden('idUsuario',$datos->idUsuario)!!}
 		<div id="contenedor">
 			<div class="col-md-4">
-				{!!Form::label('testMedico','Test medico:')!!}
+				{!!Form::label('testMedico','Test médico:')!!}
 
 			</div>
 			<input name="testMedico" id="testMedico" type="file" value="Search" required>
@@ -32,7 +32,7 @@
 		<br>
 		<div id="contenedor">
 			<div class="col-md-4">
-				{!!Form::label('donar','Donar organos:')!!}
+				{!!Form::label('donar','Donar órganos:')!!}
 			</div>
 			Si <input name="donar" value="1" type="radio" class="archivo" required>
 			No <input name="donar" value="0" type="radio" class="archivo" required>
@@ -62,7 +62,7 @@
 		<br>
 		<div id="contenedor">
 			<div class="col-md-4">
-				{!!Form::label('cp','Codigo postal:')!!}
+				{!!Form::label('cp','Código postal:')!!}
 			</div>
 			{!!Form::text('cp',null,['class'=>'form-control input-50','required'])!!}
 

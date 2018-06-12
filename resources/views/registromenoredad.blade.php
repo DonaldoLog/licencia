@@ -30,7 +30,7 @@
 			<div>
 			<br>
 				<div class="col-md-3">
-					{!!Form::label('cpT','Codigo postal')!!}
+					{!!Form::label('cpT','Código postal')!!}
 				</div>
 				{!!Form::text('cpT',null,['required'])!!}
 			</div>
@@ -53,7 +53,7 @@
 			<br>
 			<br>
 				<div class="col-md-3">
-					{!!Form::label('organosT','Donar organos')!!}
+					{!!Form::label('organosT','Donar órganos')!!}
 				</div>
 				Si {!!Form::radio('organosT','si')!!}
 				No {!!Form::radio('organosT','no')!!}
@@ -62,7 +62,7 @@
 			<br>
 			<br>
 				<div class="col-md-3">
-					{!!Form::label('telT','Telefono')!!}
+					{!!Form::label('telT','Teléfono')!!}
 				</div>
 				{!!Form::text('telT',null,['required'])!!}
 			</div>
@@ -82,7 +82,7 @@
 			<div>
 			<br>
 				<div class="col-md-3">
-					{!!Form::label('testMedicoM','Subir test medico')!!}
+					{!!Form::label('testMedicoM','Subir test médico')!!}
 				</div>
 				{!!Form::file('testMedicoM',null,['required'])!!}
 			</div>
@@ -96,14 +96,14 @@
 			<div>
 			<br>
 				<div class="col-md-3">
-					{!!Form::label('telM','Telefono')!!}
+					{!!Form::label('telM','Teléfono')!!}
 				</div>
 				{!!Form::text('telM',null,['required'])!!}
 			</div>
 		</div>
 
 
-		
+
 		<br>
 		<br>
 	</div>
