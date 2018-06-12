@@ -13,7 +13,7 @@
 
 	<div class="container col-md-9 col-sm-9" id="wrapper3">
 		<div>
-			<h1>Pre registro menor de edad</h1>
+			<h1>Pre-Registro menor de edad</h1>
 		</div>
 		<div>
 			<h3>Aviso</h3>
@@ -77,7 +77,7 @@
 		</div>
 
 
-		
+
 		<br>
 
 		<div id="contenedor">

@@ -46,7 +46,7 @@
 				</div>
 
 				<div>
-					<div class="col-md-4"> {!!Form::label('direccion','Direccion:')!!} </div>
+					<div class="col-md-4"> {!!Form::label('direccion','Dirección:')!!} </div>
 					{!!Form::text('direccion',null,['class'=>'form-control input-50','required'])!!}
 				</div>
 

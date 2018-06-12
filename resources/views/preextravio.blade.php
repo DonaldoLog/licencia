@@ -12,7 +12,7 @@
 
 		<div class="container col-md-9 col-sm-9" id="wrapper3">
 			<div>
-				<h1>Pre-extravio de Licencia</h1>
+				<h1>Pre-extravío de Licencia</h1>
 			</div>
 			<div id="contenedor">
 				Llena los campos con tus datos personales
@@ -31,7 +31,7 @@
 					<a class="btn btn-succes" href="{{route('extravio')}}" id="aceptar">Verificar datos</a>
 
 				</div>
-			
+
 			<br>
 			<div id="suplente" class="col-md-3"></div>
 			<div id="contenedor3" class="col-md-6">
@@ -46,8 +46,8 @@
 		<div align="center">
 			{!!Form::submit('Generar referencia')!!}
 		</div>
-		{!!Form::close()!!} 
-		
+		{!!Form::close()!!}
+
 </div></div>
 @include ('templates.partials.footer')
 @endsection

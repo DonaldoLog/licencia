@@ -13,7 +13,7 @@
 
 	<div class="container col-md-9 col-sm-9" id="wrapper3">
 		<div>
-			<h1>Renovacion de licencia</h1>
+			<h1>Renovación de licencia</h1>
 		</div>
 		<div>
 			<h3>Aviso</h3>

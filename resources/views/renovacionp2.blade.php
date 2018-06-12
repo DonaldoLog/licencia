@@ -13,7 +13,7 @@
 
         <div class="container col-md-9 col-sm-9" id="wrapper3">
             <div>
-                <h1>Renovacion de licencia</h1>
+                <h1>Renovación de licencia</h1>
             </div>
             <div align="center">
                 <h3>{!!$usuario->nombre." ".$usuario->primerAp." ".$usuario->segundoAp!!}</h3>
@@ -31,7 +31,7 @@
                 {!!Form::hidden('tiempo',$tiempo)!!}
 
                 <div>
-                    <div class="col-md-3"> {!!Form::label('direccion','Direccion:')!!}</div>
+                    <div class="col-md-3"> {!!Form::label('direccion','Dirección:')!!}</div>
 
                     {!!Form::text('direccion',null,['class'=>'form-control input-50','required'])!!}
 
@@ -65,7 +65,7 @@
 
         </div>
         <div align="center">
-            {!!Form::submit('Imprmir licencia')!!}
+            {!!Form::submit('Imprimir licencia')!!}
         </div>
         {!!Form::close()!!}
         @include ('templates.partials.footer')
