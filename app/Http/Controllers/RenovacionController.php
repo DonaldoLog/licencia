@@ -9,17 +9,24 @@ use App\Models\Usuario;
 use App\Models\Licencia;
 use App\Models\Proceso;
 use PDF;
+use Carbon\Carbon;
 
 class RenovacionController extends Controller
 {
     public function getUser(Request $request){
+        $hoy=Carbon::now();
+
 
         $usuario=Licencia::where('numLicencia','=',$request->numLicencia)->get();
         //dd($usuario);
         if(count($usuario)>0){
             $proceso=Proceso::where('idUsuario','=',$usuario[0]->idUsuario)->get();
             if(count($proceso)>0){
+                // dd($usuario[0]->fechaFin);
                 if($proceso[0]->estado==1){
+                    if($usuario[0]->fechaFin>$hoy){
+                        return [$usuario[0]->fechaFin];
+                    }
                     return [true];
                 }else {
                     return [false];
