@@ -52,6 +52,14 @@
                 </div>
             </div>
             <br>
+            <div id="contenedor">
+        			<div class="col-md-4">
+        				{!!Form::label('lentes','¿Usa lentes?:')!!}
+        			</div>
+        			Si <input name="lentes" value="1" type="radio" class="archivo" required>
+        			No <input name="lentes" value="0" type="radio" class="archivo" required>
+        		</div>
+          	<br>
 
             <div id="contenedor">
                 <div class="col-md-3">Fotografía*</div>

@@ -13,6 +13,10 @@ use PDF;
 
 class LicenciaController extends Controller
 {
+    public function __construct()
+	{
+		$this->middleware('auth');
+	} 
     public function store(Request $request)
     {
         $añoIni=Carbon::now();

@@ -23,7 +23,7 @@ Auth::routes();
 Route::get('/nueva-licencia', 'NuevaLicenciaController@nuevaLicencia')->name('nueva.licencia');
 
 Route::get('/homex', 'NuevaLicenciaController@homex')->name('casa');
-
+Route::get('logout', 'HomeController@logout')->name('salir');
 Route::get('/documentos', 'NuevaLicenciaController@documento')->name('documentos');
 
 Route::get('/continuar-registro', 'NuevaLicenciaController@continuarregistro')->name('contregistro');

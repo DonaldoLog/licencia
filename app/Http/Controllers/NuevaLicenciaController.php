@@ -11,6 +11,10 @@ class NuevaLicenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+	{
+		$this->middleware('auth');
+	} 
     public function index()
     {
         $catEstados=CatEstado::orderBy('id','asc')->pluck('nombre','id');

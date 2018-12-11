@@ -32,6 +32,14 @@
 		<br>
 		<div id="contenedor">
 			<div class="col-md-4">
+				{!!Form::label('lentes','¿Usa lentes?:')!!}
+			</div>
+			Si <input name="lentes" value="1" type="radio" class="archivo" required>
+			No <input name="lentes" value="0" type="radio" class="archivo" required>
+		</div>
+  	<br>
+		<div id="contenedor">
+			<div class="col-md-4">
 				{!!Form::label('donar','Donar órganos:')!!}
 			</div>
 			Si <input name="donar" value="1" type="radio" class="archivo" required>
@@ -54,7 +62,7 @@
 		<br>
 		<div id="contenedor">
 			<div class="col-md-4">
-				{!!Form::label('celular','Ingrese telefono celular:')!!}
+				{!!Form::label('celular','Ingrese teléfono celular:')!!}
 			</div>
 			{!!Form::text('celular',null,['class'=>'form-control input-50','required'])!!}
 

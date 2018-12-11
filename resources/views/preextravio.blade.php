@@ -35,10 +35,10 @@
 			<br>
 			<div id="suplente" class="col-md-3"></div>
 			<div id="contenedor3" class="col-md-6">
-				<div id='labelTipoLic'>Tipo de licencia:</div>
-				<div id='labelCosto'>Monto a pagar:</div>
-				<div id='labelFolio'>ID Usuario:</div>
-				<div id='labelRefe'>Referencia:</div>
+				<div id='labelTipoLic'>Tipo de licencia: A</div>
+				<div id='labelCosto'>Monto a pagar: 1000</div>
+				<div id='labelFolio'>ID Usuario: 856546202</div>
+				<div id='labelRefe'>Referencia: 956546204</div>
 			</div>
 			<div id="suplente" class="col-md-3"></div>
 		<br>

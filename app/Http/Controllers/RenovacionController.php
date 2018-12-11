@@ -13,6 +13,10 @@ use Carbon\Carbon;
 
 class RenovacionController extends Controller
 {
+    public function __construct()
+	{
+		$this->middleware('auth');
+	} 
     public function getUser(Request $request){
         $hoy=Carbon::now();
 
